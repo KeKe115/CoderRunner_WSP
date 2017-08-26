@@ -5,7 +5,7 @@ var child_process = require('child_process');
 var fs = require('fs');
 
 app.use(express.static('public'));
-app.use(bodyParse.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.post('/api/run', function(req, res){
     var language = req.body.language;
@@ -30,7 +30,7 @@ app.post('/api/run', function(req, res){
         '--net none ' +
         '--cpuset-cpus 0 ' +
         '--memory 512m --memory-swap 512m ' +
-        '--ulimit nproc10:10 ' +
+        '--ulimit nproc=10:10 ' +
         '--ulimit fsize=1000000 ' +
         '-w /workspace ' +
         'ubuntu-dev ' +
