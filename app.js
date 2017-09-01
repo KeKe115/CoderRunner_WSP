@@ -15,13 +15,13 @@ app.post('/api/run', function(req, res){
     var filename, execCmd;
     if(language == 'ruby') {
         filename = 'Main.rb';
-        execCmd 'ruby Main.rb'
+        execCmd = 'ruby Main.rb';
     } else if (language == 'python') {
         filename = 'Main.py';
         execCmd = 'python Main.py';
     } else if (language == 'c') {
         filename = 'Main.c';
-        execCmd 'cc -Wall -o Main Main.c && ./Main';
+        execCmd = 'cc -Wall -o Main Main.c && ./Main';
     }
 
     // create a container
@@ -81,4 +81,3 @@ app.post('/api/run', function(req, res){
 app.listen(3000, function(){
     console.log('Listen on port 3000');
 });
-
